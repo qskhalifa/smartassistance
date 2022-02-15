@@ -17,10 +17,14 @@ import java.util.List;
 @RestController
 public class BatchController {
 
-    @Autowired
-    private BatchService batchService ;
+    private final BatchService batchService ;
 
     private final Logger logger = LoggerFactory.getLogger(BatchController.class);
+
+    @Autowired
+    public BatchController(BatchService batchService) {
+        this.batchService = batchService;
+    }
 
     @RequestMapping(value = "/smart-assistance/api/add-batch", method = RequestMethod.POST)
     public ResponseEntity addNewBatch(@RequestBody Batch batch){

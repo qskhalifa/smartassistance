@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+/**
+ *  Created By Qusay Sami on 1/10/22
+ */
+
 @Service
 public class RoleServiceImpl implements RoleService {
 

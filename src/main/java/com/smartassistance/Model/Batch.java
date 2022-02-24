@@ -1,9 +1,7 @@
 package com.smartassistance.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Batch {
@@ -21,6 +19,8 @@ public class Batch {
      * The size of group
      */
     private String size;
+    @ManyToMany
+    private List<Module> moduleList;
 
     public Batch() {
     }

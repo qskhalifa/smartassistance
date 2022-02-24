@@ -16,4 +16,10 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     //TODO I think there is some thing wrong !!
     @Query("select * from Student where batch.name = ?1")
     List<Student> findAllStudentByBatch(Batch batch);
+
+    // get all students IDs for specific Course ID
+    List<Student> findByBatch_ModuleList_Id(long id);
+
+
+
 }

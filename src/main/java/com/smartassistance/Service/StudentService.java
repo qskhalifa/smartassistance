@@ -13,4 +13,6 @@ public interface StudentService {
 
     Student getStudentByNumber(int studentNumber);
 
+    List<Student> getAllStudentEnrolledToModule(long moduleId);
+
 }

@@ -19,6 +19,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public List<Student> getAllStudentEnrolledToModule(long moduleId) {
+        return studentRepository.findByBatch_ModuleList_Id(moduleId);
+    }
+
+    @Override
     public List<Student> getAllStudents(Batch batch) {
         return studentRepository.findAllStudentByBatch(batch);
     }

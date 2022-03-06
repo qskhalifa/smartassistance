@@ -8,12 +8,20 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "Student_Number")
-    private Student studentNumber;
+
     @OneToOne
-    private Module moduleId;
-    @Column(name = "Exam_Degree")
-    private int examDegree;
+    private Student student;
+
+    @OneToOne
+    private AssignmentResult assignmentResult;
+
+    @OneToOne
+    private LabResult labResult ;
+
+    @OneToOne
+    private ExamResult examResult;
+
+    private int finalResult;
 
     public Result() {
     }
@@ -26,27 +34,43 @@ public class Result {
         this.id = id;
     }
 
-    public Student getStudentNumber() {
-        return studentNumber;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentNumber(Student studentNumber) {
-        this.studentNumber = studentNumber;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public Module getModuleId() {
-        return moduleId;
+    public AssignmentResult getAssignmentResult() {
+        return assignmentResult;
     }
 
-    public void setModuleId(Module moduleId) {
-        this.moduleId = moduleId;
+    public void setAssignmentResult(AssignmentResult assignmentResult) {
+        this.assignmentResult = assignmentResult;
     }
 
-    public int getExamDegree() {
-        return examDegree;
+    public LabResult getLabResult() {
+        return labResult;
     }
 
-    public void setExamDegree(int examDegree) {
-        this.examDegree = examDegree;
+    public void setLabResult(LabResult labResult) {
+        this.labResult = labResult;
+    }
+
+    public ExamResult getExamResult() {
+        return examResult;
+    }
+
+    public void setExamResult(ExamResult examResult) {
+        this.examResult = examResult;
+    }
+
+    public int getFinalResult() {
+        return finalResult;
+    }
+
+    public void setFinalResult(int finalResult) {
+        this.finalResult = finalResult;
     }
 }

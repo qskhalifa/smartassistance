@@ -6,10 +6,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public interface LabInfoService {
+
     LabInfo createNewLab (LabInfo labInfo);
+
     LabInfo updateExistLab (Long labId, LabInfo labInfo);
+
     LabInfo retrieveModuleLab (Long moduleId);
-    LabInfo retrieveModuleLabByCode(String moduleCode);
+
     List<LabInfo> retrieveAllLabs ();
+
     boolean deleteExistLab (Long labId);
 }

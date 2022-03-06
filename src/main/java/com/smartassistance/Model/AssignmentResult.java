@@ -3,21 +3,21 @@ package com.smartassistance.Model;
 import javax.persistence.*;
 
 @Entity
-public class LabResult {
+public class AssignmentResult {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    private LabInfo labInfo;
+    private Assignment assignment;
 
     @OneToOne
     private Student student;
 
-    private int result;
+    private int mark;
 
-    public LabResult() {
+    public AssignmentResult() {
     }
 
     public Long getId() {
@@ -28,12 +28,12 @@ public class LabResult {
         this.id = id;
     }
 
-    public LabInfo getLabInfo() {
-        return labInfo;
+    public Assignment getAssignment() {
+        return assignment;
     }
 
-    public void setLabInfo(LabInfo labInfo) {
-        this.labInfo = labInfo;
+    public void setAssignment(Assignment assignment) {
+        this.assignment = assignment;
     }
 
     public Student getStudent() {
@@ -44,11 +44,11 @@ public class LabResult {
         this.student = student;
     }
 
-    public int getResult() {
-        return result;
+    public int getMark() {
+        return mark;
     }
 
-    public void setResult(int result) {
-        this.result = result;
+    public void setMark(int mark) {
+        this.mark = mark;
     }
 }

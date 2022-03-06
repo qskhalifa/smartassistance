@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface StudentService {
 
-    List<Student> getAllStudents(Batch batch);
+    List<Student> getAllStudents(Long batchId);
 
     Student getStudentByNumber(int studentNumber);
 

@@ -1,18 +1,23 @@
 package com.smartassistance.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class LabInfo {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     @OneToOne
     private Module module;
+
     @OneToOne
-    private Professor professor;
+    private Batch batch;
+
+    private int mark;
 
     public LabInfo() {
     }
@@ -41,11 +46,19 @@ public class LabInfo {
         this.module = module;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public Batch getBatch() {
+        return batch;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setBatch(Batch batch) {
+        this.batch = batch;
+    }
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
     }
 }

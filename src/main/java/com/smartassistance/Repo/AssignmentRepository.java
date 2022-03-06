@@ -9,12 +9,8 @@ import java.util.List;
 
 @Repository
 public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
+    List<Assignment> findByModule_Id(long id);
 
     // TODO : GET all Created assignment Name For specific Module
-
-    List<Assignment> findAllByModule_Id(Module module);
-
-    List<Assignment> findByModule_CodeIgnoreCase(String code);
-
 
 }

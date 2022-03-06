@@ -1,13 +1,13 @@
 package com.smartassistance.Repo;
 
-import com.smartassistance.Model.Module;
-import com.smartassistance.Model.Result;
+import com.smartassistance.Model.Exam;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ResultRepository extends JpaRepository<Result, Long> {
+public interface ExamRepository extends JpaRepository<Exam,Long> {
+    Optional<Exam> findByNameIgnoreCase(String name);
+
 }

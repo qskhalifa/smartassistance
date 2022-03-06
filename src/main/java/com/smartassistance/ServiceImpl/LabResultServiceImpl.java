@@ -1,5 +1,6 @@
 package com.smartassistance.ServiceImpl;
 
+import com.smartassistance.DTOs.LabDTO;
 import com.smartassistance.Model.LabResult;
 import com.smartassistance.Repo.LabResultRepository;
 import com.smartassistance.Service.LabResultService;
@@ -16,14 +17,17 @@ public class LabResultServiceImpl implements LabResultService {
         this.labResultRepository = labResultRepository;
     }
 
+
+
     @Override
     public List<LabResult> retrieveLabResult(Long labInfoId) {
-        return labResultRepository.findAll();
+        return labResultRepository.findAllByLabInfo_Id(labInfoId);
     }
 
     @Override
-    public List<LabResult> createLabResult(List<LabResult> labResultList) {
-        return labResultRepository.saveAll(labResultList);
+    public List<LabResult> createLabResult(List<LabDTO> labDTOS) {
+        //TODO
+        return null;
     }
 
     @Override
@@ -32,9 +36,12 @@ public class LabResultServiceImpl implements LabResultService {
         LabResult existLab = labResultRepository.findById(labResultId).orElse(null);
 
         if (existLab != null) {
-            existLab.setLabResult(labResult.getLabResult());
+
+            existLab.setStudent(labResult.getStudent());
+            existLab.setResult(labResult.getResult());
             return existLab;
         }
+
         return null;
     }
 
@@ -47,6 +54,7 @@ public class LabResultServiceImpl implements LabResultService {
             labResultRepository.delete(existLab);
             return true;
         }
+
         return false;
     }
 }

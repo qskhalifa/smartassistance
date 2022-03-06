@@ -3,26 +3,23 @@ package com.smartassistance.Model;
 import javax.persistence.*;
 
 @Entity
-public class Assignment {
+public class Exam {
 
     @Id
-//    @Column(name = "assignment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private String description;
-
-    private int mark;
-
     @OneToOne
     private Batch batch ;
 
     @OneToOne
-    private Module module;
+    private Module module ;
 
-    public Assignment() {
+    private int mark;
+
+    public Exam() {
     }
 
     public Long getId() {
@@ -41,22 +38,6 @@ public class Assignment {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getMark() {
-        return mark;
-    }
-
-    public void setMark(int mark) {
-        this.mark = mark;
-    }
-
     public Batch getBatch() {
         return batch;
     }
@@ -72,4 +53,14 @@ public class Assignment {
     public void setModule(Module module) {
         this.module = module;
     }
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
 }
+
+

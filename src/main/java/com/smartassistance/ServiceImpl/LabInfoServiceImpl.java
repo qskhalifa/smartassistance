@@ -26,6 +26,7 @@ public class LabInfoServiceImpl implements LabInfoService {
             return labInfoRepository.save(labInfo);
         }
         return null;
+
     }
 
     @Override
@@ -36,10 +37,12 @@ public class LabInfoServiceImpl implements LabInfoService {
         if (existLab != null) {
             existLab.setModule(labInfo.getModule());
             existLab.setName(labInfo.getName());
-            existLab.setProfessor(labInfo.getProfessor());
+            existLab.setMark(labInfo.getMark());
+            existLab.setBatch(labInfo.getBatch());
             return labInfoRepository.save(existLab);
         }
         return null;
+
     }
 
     @Override
@@ -47,14 +50,10 @@ public class LabInfoServiceImpl implements LabInfoService {
         return labInfoRepository.findByModule_Id(moduleId).orElse(null);
     }
 
-    @Override
-    public LabInfo retrieveModuleLabByCode(String moduleCode) {
-        return labInfoRepository.findByModule_Code(moduleCode).orElse(null);
-    }
 
     @Override
     public List<LabInfo> retrieveAllLabs() {
-        return null;
+        return labInfoRepository.findAll();
     }
 
     @Override
@@ -68,5 +67,6 @@ public class LabInfoServiceImpl implements LabInfoService {
 
         }
         return false;
+
     }
 }

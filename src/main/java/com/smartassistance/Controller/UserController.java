@@ -15,6 +15,7 @@ import java.util.List;
  */
 
 @RestController
+@CrossOrigin
 @RequestMapping("/smart-assistance/api")
 public class UserController {
 

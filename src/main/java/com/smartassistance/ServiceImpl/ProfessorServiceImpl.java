@@ -20,7 +20,7 @@ public class ProfessorServiceImpl implements ProfessorService {
     @Override
     public Professor addNewProfessor(Professor professor) {
         //check if the professor already exist in the DB
-        Professor existProfessor = professorRepository.findProfessorByName(professor.getName());
+        Professor existProfessor = professorRepository.findProfessorByName(professor.getName()).orElse(null);
 
         if (existProfessor == null) {
             return professorRepository.save(professor);
@@ -48,6 +48,11 @@ public class ProfessorServiceImpl implements ProfessorService {
     @Override
     public Professor retrieveProfessorDetails(Long professorId) {
         return professorRepository.findById(professorId).orElse(null);
+    }
+
+    @Override
+    public Professor retrieveProfessorDetailsByName(String name) {
+        return professorRepository.findProfessorByName(name).orElse(null);
     }
 
     @Override

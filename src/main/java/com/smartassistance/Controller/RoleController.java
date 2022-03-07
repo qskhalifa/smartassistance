@@ -15,6 +15,7 @@ import java.util.List;
  *  Created By Qusay Sami on 1/10/22
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/smart-assistance/api")
 public class RoleController {
 

@@ -10,6 +10,7 @@ public interface ProfessorService {
     Professor addNewProfessor(Professor professor);
     Professor updateExistProfessor(Professor professor, Long id);
     Professor retrieveProfessorDetails(Long professorId);
+    Professor retrieveProfessorDetailsByName(String name);
     List<Professor> retrieveAllProfessor();
     boolean deleteProfessor(Long professorId);
 

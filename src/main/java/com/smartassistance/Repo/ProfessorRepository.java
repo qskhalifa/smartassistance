@@ -4,8 +4,10 @@ import com.smartassistance.Model.Professor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {
-    Professor findProfessorByName(String name);
+   Optional<Professor> findProfessorByName(String name);
 
 }
